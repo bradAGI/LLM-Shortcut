@@ -121,6 +121,11 @@ from the LLM, enabling on-the-go access to advanced language models. There are 2
 - You can run in detached mode by adding the `-d` flag to the `docker run` command. (Use docker logs to view the ngrok URL)
 - Ensure the `.env` file is correctly set up with your AnyScale API key, ngrok AuthToken, and model name.
 - Currently, the server is configured to use an AnyScale models.
+- No auth currently enabled, will be adding keys soon
 
 This setup allows you to leverage the power of language models directly from your iOS device, making it
 fast and convenient to use advanced AI capabilities wherever you go.
+
+## TODO:
+
+- Add auth
