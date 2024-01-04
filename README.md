@@ -88,8 +88,8 @@ from the LLM, enabling on-the-go access to advanced language models. There are 2
 ### iOS Shortcut Setup
 
 1. **Shortcut Setup**:
-    - Open the AI Shortcut in the Shortcuts app.
-      Click
+    - Click the following link to open
+      the [LLM Shortcut](https://github.com/00brad/LLM-Shortcut/raw/main/Ask%20AI.shortcut) in the Shortcuts app.
     - Click the '+ Add to Shortcut' button to add the shortcut to your library.
       <div align="left">
         <img src="icons/shortcut.png" alt="Add to Shortcut" width="250" />
