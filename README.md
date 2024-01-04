@@ -1,4 +1,4 @@
-# LLM Shortcut (Ask AI)
+# LLM iOS Shortcut (Ask AI)
 
 ### Run LLMs on desktop computer / remotely and access them from your iOS device
 
