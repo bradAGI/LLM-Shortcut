@@ -49,7 +49,7 @@ from the LLM, enabling on-the-go access to advanced language models. There are 2
 1. **Git Clone**:
     - Clone this repository to your local machine:
       ```bash
-      git clone https://github.com/00bradley/llm_shortcut.git
+      git clone https://github.com/00brad/LLM-Shortcut.git
       ```
 
 2. **Build Docker Image**:
