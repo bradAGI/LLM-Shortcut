@@ -102,6 +102,10 @@ from the LLM, enabling on-the-go access to advanced language models. There are 2
       <div align="left">
         <img src="icons/url.png" alt="Edit URL" width="250" />
       </div>
+    - Add the API key.
+      <div align="left">
+        <img src="icons/key.png" alt="Edit URL" width="250" />
+      </div>
     - Click the 'Done' button to save the changes.
     - Click the 'i' button to view the shortcut details and click Add to Home Screen to add the shortcut to your home
    
@@ -125,7 +129,3 @@ from the LLM, enabling on-the-go access to advanced language models. There are 2
 
 This setup allows you to leverage the power of language models directly from your iOS device, making it
 fast and convenient to use advanced AI capabilities wherever you go.
-
-## TODO:
-
-- Add auth
