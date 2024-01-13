@@ -1,5 +1,6 @@
 import os
 import sys
+import uuid
 
 import llm
 from fastapi import FastAPI
@@ -17,33 +18,34 @@ class Settings(BaseSettings):
 
 
 settings = Settings(_env_file='.env')
-
 app = FastAPI()
+key = uuid.uuid4().hex
+
+print("\nThe following models are available:")
+print('\n'.join(l.split(':', 1)[1].strip() for l in os.popen('llm models').read().splitlines() if ':' in l))
 
 
 @app.on_event("startup")
 async def startup_event():
     if settings.USE_NGROK:
-        # Extract the port number. Use 8000 as default if not specified.
         port = sys.argv[sys.argv.index("--port") + 1] if "--port" in sys.argv else "8000"
-        # Set ngrok authtoken from settings
         ngrok.set_auth_token(settings.NGROK_AUTHTOKEN)
-        # Open a ngrok tunnel to the dev server
         public_url = ngrok.connect(port).public_url
-        print(f"NGROK URL: \"{public_url}\" ", flush=True)
-        # Update the base URL to use the public ngrok URL
+        print("NGROK URL: ", public_url, flush=True)
+        print("API KEY: ", key, flush=True)
         settings.BASE_URL = public_url
 
 
-@app.get("/llm/{prompt}")
-async def get_answer(prompt: str):
+@app.get("/{key}/{prompt}")
+async def get_answer(key: str, prompt: str):
+    if key != str(key):
+        return "Invalid key"
     prompt = prompt.replace("_", " ")
     system = "You are a helpful chatbot."
     return await get_response(prompt, system)
 
 
 async def get_response(prompt, system):
-    print(os.system("llm models"))
     model = llm.get_model(settings.MODEL)
     model.key = settings.LLM_ANYSCALE_ENDPOINTS_KEY
     return model.prompt(system, prompt, max_tokens=settings.MAX_TOKENS).text().strip()
